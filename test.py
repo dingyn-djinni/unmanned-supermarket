@@ -3,8 +3,8 @@ from PyQt5.QtWidgets import QTableView, QHeaderView, QFormLayout,   QVBoxLayout,
 import sys
 from PyQt5.QtCore import  *
 from PyQt5.QtGui import  QStandardItemModel,QStandardItem
-# 方法一: 使用pymsql.connect方法
-import pymysql
+
+import mysql
 
 
 class WindowClass(QWidget):
@@ -17,10 +17,11 @@ class WindowClass(QWidget):
     num=0
     #即可， 注意集成QWidget和集成QMainWindow时候区别
     def __init__(self,parent=None):
+        self.mysql=mysql.SqlFunc()
         super(WindowClass, self).__init__(parent)
         self.layout=QVBoxLayout()
-        self.model=QStandardItemModel(8,3)#存储任意结构数据
-        self.model.setHorizontalHeaderLabels(['商品','标签','价格','数量'])
+        self.model=QStandardItemModel(100,3)#存储任意结构数据
+        self.model.setHorizontalHeaderLabels(['商品','标签','价格'])
         # for row in range(4):
         #     for column in range(4):
         #         i=QStandardItem("row %s,column %s"%(row,column))
@@ -47,17 +48,20 @@ class WindowClass(QWidget):
         if (event.key()==Qt.Key_0):
             print("test")
         if (event.key()==Qt.Key_1):
-            self.showData("1","2","3")
+            self.showData("水")
         if (event.key()==Qt.Key_2):
-            self.sqlUpdate()
+            self.submit()
+        if (event.key()==Qt.Key_3):
+            self.resetForm()
 
     # 显示数据
-    def showData(self,a,b,c):
+    def showData(self,a):
         i = QStandardItem(a)
         self.model.setItem(self.num, 0, i)
-        i = QStandardItem(b)
+        ret=self.mysql.select("SELECT * FROM `goods` WHERE `name`='"+a+"'")
+        i = QStandardItem(ret[0][1])
         self.model.setItem(self.num, 1, i)
-        i = QStandardItem(c)
+        i = QStandardItem(str(ret[0][2]))
         self.model.setItem(self.num, 2, i)
         self.num+=1
 
@@ -65,11 +69,12 @@ class WindowClass(QWidget):
     def listenData(self):
         return
 
-    def sqlSelect(self,sql):
+    def resetForm(self):
+        self.model = QStandardItemModel(8, 4)
+        self.tableView.setModel(self.model)
+        self.num=0
 
-        return
-
-    def sqlUpdate(self):
+    def submit(self):
 
         return
 
