@@ -70,12 +70,12 @@ class WindowClass(QWidget):
         return
 
     def resetForm(self):
-        self.model = QStandardItemModel(8, 4)
+        self.model = QStandardItemModel(100, 3)
         self.tableView.setModel(self.model)
         self.num=0
 
     def submit(self):
-
+        print(self.model.item(1,1).data())
         return
 
 if __name__=="__main__":
