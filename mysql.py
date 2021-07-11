@@ -3,6 +3,7 @@
 import pymysql
 
 class SqlFunc():
+
     def __init__(self):
         # 打开数据库连接
         self.db = pymysql.connect(host="198.13.47.120", user="shop", password="fEh63JddcZR3LYLM", database="shop")
