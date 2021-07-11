@@ -16,6 +16,7 @@ class WindowClass(QWidget):
     """
     num=0
     sock1=None
+
     #即可， 注意集成QWidget和集成QMainWindow时候区别
     def __init__(self,parent=None):
         self.mysql=mysql.SqlFunc()
@@ -41,6 +42,7 @@ class WindowClass(QWidget):
         self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)#所有列自动拉伸，充满界面
         self.itemArr=[]
 
+    # 按键执行各个模块
     def keyPressEvent(self, event):
         # 这里event.key（）显示的是按键的编码
         print("按下：" + str(event.key()))
@@ -49,6 +51,7 @@ class WindowClass(QWidget):
             exit(0)
         if (event.key()==Qt.Key_0):
             print("test")
+            exit(0)
         if (event.key()==Qt.Key_1):
             self.showData("111")
         if (event.key()==Qt.Key_2):
@@ -60,7 +63,7 @@ class WindowClass(QWidget):
         if (event.key()==Qt.Key_5):
             print("listening...")
             self.sock1 = TCPserver.sock()
-            print(self.sock1)
+            QMessageBox.question(self,"连接成功", "目标检测设备已接入", QMessageBox.Yes | QMessageBox.Yes)
     # 获取用户的id
     def getUserid(self):
         return
