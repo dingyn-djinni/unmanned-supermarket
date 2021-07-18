@@ -1,9 +1,8 @@
 #QTableView组件的使用
-from PyQt5.QtWidgets import QApplication,QTableView, QHeaderView, QFormLayout,   QVBoxLayout,QWidget,QApplication ,QHBoxLayout, QPushButton,QMainWindow,QGridLayout,QLabel,QMessageBox
+from PyQt5.QtWidgets import QApplication,QTableView, QHeaderView, QFormLayout,QVBoxLayout,QWidget,QApplication ,QHBoxLayout,QPushButton,QMainWindow,QGridLayout,QLabel,QMessageBox
 import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import QStandardItemModel,QStandardItem,QIcon
-
 import mysql
 import TCPserver
 
@@ -64,6 +63,9 @@ class WindowClass(QWidget):
             print("listening...")
             self.sock1 = TCPserver.sock()
             QMessageBox.question(self,"连接成功", "目标检测设备已接入", QMessageBox.Yes | QMessageBox.Yes)
+        if (event.key()==Qt.Key_6):
+            self.testFunc("TDR_Seafood,TDR_Porkbone,TDR_Spicyporkbone,Lays_Original")
+
     # 获取用户的id
     def getUserid(self):
         return
@@ -85,19 +87,36 @@ class WindowClass(QWidget):
         while True:
             scanFlag=QMessageBox.question(self,"确定扫描", "请将商品放在指定区域", QMessageBox.Yes |  QMessageBox.No, QMessageBox.Yes)
             if scanFlag==65536:
-                # print(scanFlag)
+                print(scanFlag)
                 return
             if self.sock1==None:
-                # print("no socket")
+                print("no socket")
                 return
             self.sock1.send("aaaa")
             itemStr=self.sock1.listen()
             print(itemStr)
             itemStr=itemStr.replace(" ", "")
-            itemList=itemStr.split(',')
+            itemList=itemStr.split(',')[0:4]
+            print(itemList)
             for item in itemList:
-                self.showData(item)
+                try:
+                    self.showData(item)
+                except:
+                    continue
             self.submit()
+
+    def testFunc(self,itemStr):
+        # 监听数据
+        print(itemStr)
+        itemStr = itemStr.replace(" ", "")
+        itemList = itemStr.split(',')
+        print(itemList)
+        for item in itemList:
+            try:
+                self.showData(item)
+            except:
+                continue
+        self.submit()
 
     # 重置界面
     def resetForm(self):

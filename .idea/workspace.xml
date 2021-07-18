@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bca1bceb-848d-45a3-ae3c-c9f14d8bfad7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bluetooth_connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TCPserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/TCPserver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shopcanvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/shopcanvas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mysql" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="TCPserver2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="unmanned-supermarket" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -77,7 +77,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mysql.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TCPserver2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,10 +152,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.shopcanvas (1)" />
-        <item itemvalue="Python.TCPserver" />
+        <item itemvalue="Python.TCPserver2" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.TCPserver" />
         <item itemvalue="Python.shopcanvas" />
-        <item itemvalue="Python.mysql" />
       </list>
     </recent_temporary>
   </component>

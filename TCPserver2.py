@@ -4,7 +4,7 @@ class sock():
     def __init__(self):
         self.socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         host = "10.5.130.251"
-        port = 20000
+        port = 20001
         # 绑定地址
         self.socket_server.bind((host, port))
         # 设置监听
@@ -31,3 +31,5 @@ class sock():
 
     def __del__(self):
         self.socket_server.close()
+sock1=sock()
+sock1.listen()
